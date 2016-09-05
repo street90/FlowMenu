@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.PopupWindow;
 
 /**
@@ -20,6 +21,7 @@ public class FlowMenu extends LinearLayout {
     private PopupWindow mPopupWindow;
     private Button btShow;
     private Context mContext;
+    private ListView lvMenu1,lvMenu2,lvMenu3;
 
 
     public FlowMenu(Context context) {
@@ -42,6 +44,9 @@ public class FlowMenu extends LinearLayout {
         mContext = context;
 
         View view = LayoutInflater.from(context).inflate(R.layout.pop_menu,null);
+        lvMenu1 = (ListView) view.findViewById(R.id.lv_menu1);
+        lvMenu2 = (ListView) view.findViewById(R.id.lv_menu2);
+        lvMenu3 = (ListView) view.findViewById(R.id.lv_menu3);
         mPopupWindow = new PopupWindow(view,LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT,true);
         mPopupWindow.setTouchable(true);
         mPopupWindow.setOutsideTouchable(true);
@@ -52,7 +57,7 @@ public class FlowMenu extends LinearLayout {
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
 
-        Button btShow = new Button(mContext);
+        btShow = new Button(mContext);
         btShow.setText("显示MENU");
         LayoutParams mLayoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
         btShow.setLayoutParams(mLayoutParams);
