@@ -1,21 +1,39 @@
 package com.app.song.library.adapter;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
+
+import com.app.song.library.R;
+
+import java.util.List;
 
 /**
  * Created by song on 2016/9/5.
  */
 public class MenuAdapter extends BaseAdapter {
 
-    public MenuAdapter() {
-        super();
+    List<String> mDataList;
+
+    public MenuAdapter(List<String> mDataList) {
+        this.mDataList = mDataList;
+    }
+
+    public void setData(List<String> mNewDataList)
+    {
+        mDataList = mNewDataList;
+        notifyDataSetChanged();
     }
 
     @Override
     public int getCount() {
-        return 0;
+
+        if(mDataList == null)
+            return 0;
+
+        return mDataList.size();
     }
 
     @Override
@@ -30,6 +48,28 @@ public class MenuAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return null;
+
+        ViewHolder holder;
+        if(view == null)
+        {
+            holder = new ViewHolder();
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item,null);
+            holder.tvItem = (TextView) view.findViewById(R.id.tv_item);
+            view.setTag(holder);
+        }
+        else
+        {
+            holder = (ViewHolder) view.getTag();
+        }
+
+        holder.tvItem.setText(mDataList.get(i));
+
+
+        return view;
     }
+
+    class ViewHolder{
+        TextView tvItem;
+    }
+
 }

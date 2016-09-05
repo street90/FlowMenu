@@ -11,6 +11,9 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by song on 2016/9/4.
  */
@@ -22,6 +25,7 @@ public class FlowMenu extends LinearLayout {
     private Button btShow;
     private Context mContext;
     private ListView lvMenu1,lvMenu2,lvMenu3;
+    private List<String> mDataList1,mDataList2,mDataList3;
 
 
     public FlowMenu(Context context) {
@@ -66,6 +70,12 @@ public class FlowMenu extends LinearLayout {
             @Override
             public void onClick(View view) {
                 mPopupWindow.showAsDropDown(view);
+
+                mDataList1 = new ArrayList<String>();
+                mDataList1 = new ArrayList<String>();
+                mDataList1 = new ArrayList<String>();
+
+
                 Log.d(TAG,"show");
             }
         });
