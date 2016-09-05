@@ -5,7 +5,9 @@
               android:layout_height="match_parent">
     <TextView
         android:id="@+id/tv_item"
-        android:layout_width="40dp"
+        android:textSize="20sp"
+        android:layout_width="80dp"
+        android:gravity="center"
         android:layout_height="match_parent"/>
 
 </LinearLayout>

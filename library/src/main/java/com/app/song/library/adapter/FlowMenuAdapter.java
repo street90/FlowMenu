@@ -13,11 +13,11 @@ import java.util.List;
 /**
  * Created by song on 2016/9/5.
  */
-public class MenuAdapter extends BaseAdapter {
+public class FlowMenuAdapter extends BaseAdapter {
 
     List<String> mDataList;
 
-    public MenuAdapter(List<String> mDataList) {
+    public FlowMenuAdapter(List<String> mDataList) {
         this.mDataList = mDataList;
     }
 
