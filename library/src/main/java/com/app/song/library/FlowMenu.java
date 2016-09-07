@@ -71,14 +71,16 @@ public class FlowMenu extends LinearLayout {
 
         itemHight = utils.dip2px(mContext,itemHight);
 
-        mLayoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
-        mLayoutParams.width = 0;
-        mLayoutParams.height = itemHight*showNum;
-        mLayoutParams.weight = 1;
+        initLvLp();
 
-        lvMenu1.setLayoutParams(mLayoutParams);
-        lvMenu2.setLayoutParams(mLayoutParams);
-        lvMenu3.setLayoutParams(mLayoutParams);
+//        mLayoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+//        mLayoutParams.width = 0;
+//        mLayoutParams.height = itemHight*showNum;
+//        mLayoutParams.weight = 1;
+//
+//        lvMenu1.setLayoutParams(mLayoutParams);
+//        lvMenu2.setLayoutParams(mLayoutParams);
+//        lvMenu3.setLayoutParams(mLayoutParams);
 
         lvMenu1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -86,7 +88,7 @@ public class FlowMenu extends LinearLayout {
 
                 mDataList2.clear();
                 for (int j = 0; j < 20; j++) {
-                    mDataList2.add(i+" item");
+                    mDataList2.add(i+" item " + j);
                 }
 
                 mAdapter2.setData(mDataList2);
@@ -105,7 +107,7 @@ public class FlowMenu extends LinearLayout {
                 mDataList3.clear();
 
                 for (int j = 0; j < 20; j++) {
-                    mDataList3.add(i+" item");
+                    mDataList3.add(i+" item" + j);
                 }
 
                 mAdapter3.setData(mDataList3);
@@ -118,7 +120,7 @@ public class FlowMenu extends LinearLayout {
         lvMenu3.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(mContext,i+" selected",Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext,i+" selected ",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -138,7 +140,7 @@ public class FlowMenu extends LinearLayout {
 
         btShow = new Button(mContext);
         btShow.setText("显示MENU");
-        LayoutParams mLayoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+        mLayoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
         btShow.setLayoutParams(mLayoutParams);
         this.addView(btShow);
         btShow.setOnClickListener(new OnClickListener() {
@@ -149,6 +151,8 @@ public class FlowMenu extends LinearLayout {
 
                 if(mPopupWindow== null)
                     return;
+
+                initLvLp();
 
                 if( !mPopupWindow.isShowing())
                 {
@@ -213,6 +217,18 @@ public class FlowMenu extends LinearLayout {
 
     }
 
+
+    private void initLvLp()
+    {
+        mLayoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+        mLayoutParams.width = 0;
+        mLayoutParams.height = itemHight*showNum;
+        mLayoutParams.weight = 1;
+
+        lvMenu1.setLayoutParams(mLayoutParams);
+        lvMenu2.setLayoutParams(mLayoutParams);
+        lvMenu3.setLayoutParams(mLayoutParams);
+    }
 
 
 }
