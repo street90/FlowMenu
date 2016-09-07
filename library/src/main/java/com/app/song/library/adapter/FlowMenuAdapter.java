@@ -16,11 +16,11 @@ import java.util.List;
  */
 public class FlowMenuAdapter extends BaseAdapter {
 
-    List<String> mDataList;
+    private List<String> mDataList;
 
-    public FlowMenuAdapter() {
 
-    }
+    private  FlowMenuAdapter()
+    {}
 
     public static FlowMenuAdapter newInstance()
     {
@@ -32,6 +32,8 @@ public class FlowMenuAdapter extends BaseAdapter {
         mDataList = mNewDataList;
         notifyDataSetChanged();
     }
+
+
 
     @Override
     public int getCount() {

@@ -11,8 +11,10 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
+import android.widget.Toast;
 
 import com.app.song.library.adapter.FlowMenuAdapter;
+import com.app.song.library.utils.utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +32,10 @@ public class FlowMenu extends LinearLayout {
     private ListView lvMenu1,lvMenu2,lvMenu3;
     private List<String> mDataList1,mDataList2,mDataList3;
     private FlowMenuAdapter mAdapter1,mAdapter2,mAdapter3;
+    private int showNum = 6;//listView显示的数量
+    private int itemHight = 40;//listView 单个item的高度 dp
+
+    private LinearLayout.LayoutParams mLayoutParams;
 
 
     public FlowMenu(Context context) {
@@ -63,19 +69,46 @@ public class FlowMenu extends LinearLayout {
         mAdapter2 = FlowMenuAdapter.newInstance();
         mAdapter3 = FlowMenuAdapter.newInstance();
 
+        itemHight = utils.dip2px(mContext,itemHight);
+
+        mLayoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+        mLayoutParams.width = 0;
+        mLayoutParams.height = itemHight*showNum;
+        mLayoutParams.weight = 1;
+
+        lvMenu1.setLayoutParams(mLayoutParams);
+        lvMenu2.setLayoutParams(mLayoutParams);
+        lvMenu3.setLayoutParams(mLayoutParams);
 
         lvMenu1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                mDataList2.clear();
+                for (int j = 0; j < 20; j++) {
+                    mDataList2.add(i+" item");
+                }
+
                 mAdapter2.setData(mDataList2);
+
+                mDataList3.clear();
+
+                mAdapter3.setData(mDataList3);
             }
         });
 
         lvMenu2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                mAdapter3.setData(mDataList3);
 
+
+                mDataList3.clear();
+
+                for (int j = 0; j < 20; j++) {
+                    mDataList3.add(i+" item");
+                }
+
+                mAdapter3.setData(mDataList3);
 
 
             }
@@ -85,7 +118,7 @@ public class FlowMenu extends LinearLayout {
         lvMenu3.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+                Toast.makeText(mContext,i+" selected",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -159,6 +192,26 @@ public class FlowMenu extends LinearLayout {
 
     }
 
+
+    /**
+     * 设置显示的数量
+     */
+    public void setShowItemNum(int showNum)
+    {
+        if(showNum <= 0)
+            return ;
+        this.showNum = showNum;
+
+    }
+
+    public void setItemHight(int itemHight)
+    {
+        if(itemHight <= 0)
+            return;
+
+        this.itemHight = itemHight;
+
+    }
 
 
 
