@@ -66,6 +66,16 @@ public class FlowMenu extends LinearLayout {
         mPopupWindow.setTouchable(true);
         mPopupWindow.setOutsideTouchable(true);
         mPopupWindow.setBackgroundDrawable(new BitmapDrawable());
+
+        mPopupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+              lvMenu1.setSelection(0);
+                setLvData2(null);
+                setLvData3(null);
+            }
+        });
+
         mAdapter1 = FlowMenuAdapter.newInstance();
         mAdapter2 = FlowMenuAdapter.newInstance();
         mAdapter3 = FlowMenuAdapter.newInstance();
@@ -78,6 +88,9 @@ public class FlowMenu extends LinearLayout {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+                lvMenu2.setSelection(0);
+                lvMenu3.setSelection(0);
+
                 setLvData2(null);
                 setLvData3(null);
 
@@ -89,6 +102,8 @@ public class FlowMenu extends LinearLayout {
         lvMenu2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                lvMenu3.setSelection(0);
 
                 setLvData3(null);
 

@@ -11,7 +11,7 @@ public interface ItemClickListener {
      * 第一个listView点击监听
      * @param view
      * @param o
-     * @param item
+     * @param num
      */
     void firstListViewClick(View view,Object o,int num);
 
@@ -20,7 +20,7 @@ public interface ItemClickListener {
      * 第二个listView点击监听
      * @param view
      * @param o
-     * @param item
+     * @param num
      */
     void secondListViewClick(View view,Object o,int num);
 
@@ -29,7 +29,7 @@ public interface ItemClickListener {
      * 第三个listView点击监听
      * @param view
      * @param o
-     * @param item
+     * @param num
      */
     void thirdListViewClick(View view,Object o,int num);
 
