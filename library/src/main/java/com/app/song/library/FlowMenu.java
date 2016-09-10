@@ -88,14 +88,14 @@ public class FlowMenu extends LinearLayout {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                lvMenu2.setSelection(0);
-                lvMenu3.setSelection(0);
 
-                setLvData2(null);
+
                 setLvData3(null);
 
                 if(mItemClickListener != null)
                     mItemClickListener.firstListViewClick(view,mAdapter2,i);
+
+                lvMenu2.setSelection(0);
             }
         });
 
@@ -103,12 +103,12 @@ public class FlowMenu extends LinearLayout {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                lvMenu3.setSelection(0);
 
-                setLvData3(null);
 
                 if(mItemClickListener != null)
                     mItemClickListener.secondListViewClick(view,mAdapter3,i);
+
+                lvMenu3.setSelection(0);
             }
         });
 
@@ -181,7 +181,6 @@ public class FlowMenu extends LinearLayout {
 
         if(mAdapter1 != null)
             mAdapter1.setData(mDataList1);
-
     }
 
     /**
