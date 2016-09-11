@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/ll_root_view"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="@android:color/holo_red_light"
+              android:minHeight="40dp"
               android:orientation="horizontal"
-              android:minHeight="30dp"
+              android:background="#F9F9F9"
     >
 
 
@@ -13,7 +14,11 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:cacheColorHint="@android:color/transparent"
+        android:choiceMode="singleChoice"
         android:divider="@null"
+        android:fadingEdge="none"
+        android:scrollbars="none"
         />
 
     <ListView
@@ -21,16 +26,10 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:cacheColorHint="@android:color/transparent"
         android:divider="@null"
+        android:fadingEdge="none"
+        android:scrollbars="none"
         />
-
-    <ListView
-        android:id="@+id/lv_menu3"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:divider="@null"
-        />
-
 
 </LinearLayout>

@@ -1,10 +1,8 @@
 package com.app.song.flowmenu;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -32,13 +30,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            // 透明状态栏
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            // 透明导航栏
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-        }
-
         ButterKnife.bind(this);
 
         mDataList1 = new ArrayList<String>();
@@ -61,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
 
         mFlShow.setLvData1(mDataList3);
 
+        mFlShow.setFirstMenuWidth(100);
+
         mFlShow.setOnItemClickListener(new ItemClickListener() {
             @Override
             public void firstListViewClick(View view, Object o, int item) {
@@ -76,19 +69,13 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void secondListViewClick(View view, Object o, int item) {
-                mDataList2.clear();
 
-                for (int i = 0; i < 10; i++) {
-                    mDataList2.add(item + " item "+i);
-                }
+                Toast.makeText(MainActivity.this,"show item " + item, Toast.LENGTH_SHORT).show();
 
-                ( (FlowMenuAdapter)o).setData(mDataList2);
+                mFlShow.getButton().setText(mDataList1.get(item));
+
             }
 
-            @Override
-            public void thirdListViewClick(View view, Object o, int item) {
-                Toast.makeText(MainActivity.this,"show item " + item,Toast.LENGTH_SHORT).show();
-            }
         });
     }
 }

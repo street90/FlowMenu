@@ -25,12 +25,5 @@ public interface ItemClickListener {
     void secondListViewClick(View view,Object o,int num);
 
 
-    /**
-     * 第三个listView点击监听
-     * @param view
-     * @param o
-     * @param num
-     */
-    void thirdListViewClick(View view,Object o,int num);
 
 }

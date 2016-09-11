@@ -1,6 +1,5 @@
 package com.app.song.library.adapter;
 
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +18,7 @@ public class FlowMenuAdapter extends BaseAdapter {
     private List<String> mDataList;
 
 
+
     private  FlowMenuAdapter()
     {}
 
@@ -34,7 +34,6 @@ public class FlowMenuAdapter extends BaseAdapter {
     }
 
 
-
     @Override
     public int getCount() {
 
@@ -46,6 +45,8 @@ public class FlowMenuAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int i) {
+        if(mDataList != null)
+            return mDataList.get(i);
         return null;
     }
 
@@ -71,21 +72,6 @@ public class FlowMenuAdapter extends BaseAdapter {
         }
 
         holder.tvItem.setText(mDataList.get(i));
-
-
-        Drawable drawable = viewGroup.getContext().getResources().getDrawable(R.drawable.arrow_right,null);
-
-        drawable.setBounds(0,0,drawable.getMinimumWidth(),drawable.getMinimumHeight());
-
-        if(i == 4)
-        {
-            holder.tvItem.setCompoundDrawables(null,null,drawable,null);
-        }
-        else
-        {
-            holder.tvItem.setCompoundDrawables(null,null,null,null);
-        }
-
 
         return view;
     }
