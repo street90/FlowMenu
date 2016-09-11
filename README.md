@@ -5,8 +5,8 @@ FlowMemu for Android 实现了分类选择
 
 <img src="https://github.com/street90/FlowMenu/blob/master/pic/screen.gif" width="270" height="450"/>
 
-usag
----
+usage
+-----
 **xml**
 
 	    <com.app.song.library.FlowMenu
